@@ -1,0 +1,27 @@
+﻿@model Practice_3.Models.Customer
+
+@{
+    Layout = null;
+}
+
+<h2>Новый заказчик</h2>
+
+@using (Html.BeginForm("CreateCustomer", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.Name, "Имя")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Surname, "Фамилия")
+    <br />
+    @Html.EditorFor(model => model.Surname)
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Address, "Адрес")
+    <br />
+    @Html.EditorFor(model => model.Address)
+    <br />
+    <br />
+    <input type="submit" value="Добавить" />
+}

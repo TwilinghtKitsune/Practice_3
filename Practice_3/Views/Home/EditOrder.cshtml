@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Редактировать заказ";
+    Layout = null;
+}
+@model Practice_3.Models.Order
+
+<h2>Заказ с Id № @Model.Id</h2>
+@using (Html.BeginForm("EditOrder", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.Id_customer, "Id заказчика")
+        <br />
+        @Html.EditorFor(m => m.Id_customer)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Title, "Название")
+        <br />
+        @Html.EditorFor(m => m.Title)
+
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Quantity, "Количество")
+        <br />
+        @Html.EditorFor(m => m.Quantity)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Price, "Цена")
+        <br />
+        @Html.EditorFor(m => m.Price)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Date, "Дата")
+        <br />
+        @Html.EditorFor(m => m.Date)
+    </p>
+    <p><input type="submit" value="Отправить" /></p>
+</fieldset>
+}

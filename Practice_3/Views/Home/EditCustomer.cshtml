@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Редактировать заказчика";
+    Layout = null;
+}
+@model Practice_3.Models.Customer
+<h2>Заказчик с Id № @Model.Id</h2>
+@using (Html.BeginForm("EditCustomer", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Name, "Имя")
+            <br />
+            @Html.EditorFor(m => m.Name)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Surname, "Фамилия")
+            <br />
+            @Html.EditorFor(m => m.Surname)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Address, "Адрес")
+            <br />
+            @Html.EditorFor(m => m.Address)
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

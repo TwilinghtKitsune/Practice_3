@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Practice_3.Models.Customer>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Style.css">
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("InOrder", "Home", FormMethod.Get))
+        {
+            <p><input type="submit" value="Заказы" /></p>
+        }
+        <br>
+        <h3>Заказчики</h3>
+        <table style="width: 50%; border: 1px solid black;">
+            <tr class="header">
+                <td><p>ID</p></td>
+                <td><p>Имя</p></td>
+                <td><p>Фамилия</p></td>
+                <td><p>Адрес </p></td>
+            </tr>
+            @foreach (Practice_3.Models.Customer с in Model)
+            {
+                <tr>
+                    <td><p>@с.Id</p></td>
+                    <td><p>@с.Name</p></td>
+                    <td><p>@с.Surname</p></td>
+                    <td><p>@с.Address</p></td>
+                </tr>
+            }
+        </table>
+        @using (Html.BeginForm("EditCustomer", "Home", FormMethod.Get))
+        {
+            <p>
+                <input type="number" min="1" name="id" id="ls" />
+                <input type="submit" value="Редактировать" />
+            </p>
+        }
+
+        @using (Html.BeginForm("CreateCustomer", "Home", FormMethod.Get))
+        {
+            <p><input type="submit" value="Добавить" /></p>
+        }
+
+        @using (Html.BeginForm("DeleteCustomer", "Home", FormMethod.Get))
+        {
+            <p>
+                <input type="number" min="1" name="id" id="ls" />
+                <input type="submit" value="Удалить" />
+            </p>
+        }
+    </div>
+</body>
+</html>

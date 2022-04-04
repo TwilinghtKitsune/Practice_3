@@ -1,0 +1,37 @@
+﻿@model Practice_3.Models.Order
+
+@{
+    Layout = null;
+}
+
+<h2>Новый заказчик</h2>
+
+@using (Html.BeginForm("CreateOrder", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.Id_customer, "Id заказчика")
+    <br />
+    @Html.EditorFor(model => model.Id_customer)
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Title, "Название")
+    <br />
+    @Html.EditorFor(model => model.Title)
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Quantity, "Количество")
+    <br />
+    @Html.EditorFor(model => model.Quantity)
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Price, "Цена")
+    <br />
+    @Html.EditorFor(model => model.Price)
+    <br />
+    <br />
+    @Html.LabelFor(model => model.Date, "Дата")
+    <br />
+    @Html.EditorFor(model => model.Date)
+    <br />
+    <br />
+    <input type="submit" value="Добавить" />
+}

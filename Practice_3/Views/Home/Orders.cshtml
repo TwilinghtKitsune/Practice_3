@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Practice_3.Models.Order>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/Style.css">
+    <title>Orders</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("InCustomer", "Home", FormMethod.Get))
+        {
+            <p><input type="submit" value="Заказы" /></p>
+        }
+        <br>
+        <h3>Заказы</h3>
+        <table style="width: 50%; border: 1px solid black;">
+            <tr class="header">
+                <td><p>Id</p></td>
+                <td><p>Id заказчика</p></td>
+                <td><p>Название</p></td>
+                <td><p>Количество</p></td>
+                <td><p>Цена</p></td>
+                <td><p>Дата</p></td>
+            </tr>
+            @foreach (Practice_3.Models.Order o in Model)
+            {
+                <tr>
+                    <td><p>@o.Id</p></td>
+                    <td><p>@o.Id_customer</p></td>
+                    <td><p>@o.Title</p></td>
+                    <td><p>@o.Quantity</p></td>
+                    <td><p>@o.Price</p></td>
+                    <td><p>@o.Date</p></td>
+                </tr>
+            }
+        </table>
+        @using (Html.BeginForm("EditOrder", "Home", FormMethod.Get))
+        {
+            <p>
+                <input type="number" min="1" name="id" id="ls" />
+                <input type="submit" value="Редактировать" />
+            </p>
+        }
+
+        @using (Html.BeginForm("CreateOrder", "Home", FormMethod.Get))
+        {
+            <p><input type="submit" value="Добавить" /></p>
+        }
+
+        @using (Html.BeginForm("DeleteOrder", "Home", FormMethod.Get))
+        {
+            <p>
+                <input type="number" min="1" name="id" id="ls" />
+                <input type="submit" value="Удалить" />
+            </p>
+        }
+    </div>
+</body>
+</html>
