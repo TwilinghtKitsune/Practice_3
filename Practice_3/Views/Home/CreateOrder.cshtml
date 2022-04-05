@@ -1,10 +1,11 @@
 ﻿@model Practice_3.Models.Order
 
 @{
+    ViewBag.Title = "Создать заказ";
     Layout = null;
 }
 
-<h2>Новый заказчик</h2>
+<h2>Новый заказ</h2>
 
 @using (Html.BeginForm("CreateOrder", "Home", FormMethod.Post))
 {
